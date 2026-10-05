@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaTech - Company Website</title>
+
+    <style>
+
+        /* =========================
+           GENERAL CSS
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            color: #222;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 15px;
+            color: #123c69;
+        }
+
+        .section-text {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 40px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #123c69;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #0b2948;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background-color: #123c69;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px #aaa;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f7c948;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .nav-menu a:hover {
+            color: #f7c948;
+        }
+
+
+        /* =========================
+           HOME SECTION
+        ========================== */
+
+        #home {
+            min-height: 650px;
+            background: linear-gradient(
+                rgba(18, 60, 105, 0.9),
+                rgba(18, 60, 105, 0.9)
+            );
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .home-content {
+            width: 100%;
+        }
+
+        .home-content h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .home-content h1 span {
+            color: #f7c948;
+        }
+
+        .home-content p {
+            font-size: 20px;
+            max-width: 750px;
+            margin: 0 auto 30px;
+        }
+
+        .home-buttons {
+            margin-top: 20px;
+        }
+
+        .home-buttons .btn {
+            margin: 5px;
+        }
+
+        .btn-light {
+            background-color: white;
+            color: #123c69;
+        }
+
+        .btn-light:hover {
+            background-color: #ddd;
+        }
+
+
+        /* =========================
+           ABOUT SECTION
+        ========================== */
+
+        #about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-box h3 {
+            color: #123c69;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .about-box p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .about-image {
+            height: 350px;
+            background-color: #e8eef5;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+        }
+
+
+        /* =========================
+           COMPANY FEATURES
+        ========================== */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px #ddd;
+        }
+
+        .feature-card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #123c69;
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           PRODUCTS SECTION
+        ========================== */
+
+        #products {
+            background-color: #f5f7fa;
+        }
+
+        .product-search {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .product-search input {
+            width: 350px;
+            max-width: 90%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px #ddd;
+        }
+
+        .product-image {
+            height: 180px;
+            background-color: #dce7f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            color: #123c69;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #16803c;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           SERVICES SECTION
+        ========================== */
+
+        #services {
+            background-color: white;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fafafa;
+        }
+
+        .service-card h3 {
+            color: #123c69;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+
+        /* =========================
+           CLIENT SECTION
+        ========================== */
+
+        #clients {
+            background-color: #eef3f8;
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .client-card {
+            background-color: white;
+            padding: 30px 15px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px #ddd;
+        }
+
+        .client-card h3 {
+            color: #123c69;
+        }
+
+        .client-card p {
+            color: #777;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           TESTIMONIALS
+        ========================== */
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px #ddd;
+        }
+
+        .testimonial p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .testimonial h4 {
+            color: #123c69;
+        }
+
+
+        /* =========================
+           CONTACT SECTION
+        ========================== */
+
+        #contact {
+            background-color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            padding: 20px;
+        }
+
+        .contact-info h3 {
+            color: #123c69;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-item strong {
+            color: #123c69;
+        }
+
+        .contact-form {
+            background-color: #f5f7fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           FAQ SECTION
+        ========================== */
+
+        #faq {
+            background-color: #f5f7fa;
+        }
+
+        .faq-box {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #ddd;
+        }
+
+        .faq-item h3 {
+            color: #123c69;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: #666;
+        }
+
+
+        /* =========================
+           NEWSLETTER
+        ========================== */
+
+        .newsletter {
+            background-color: #123c69;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            margin-bottom: 20px;
+        }
+
+        .newsletter input {
+            width: 300px;
+            max-width: 80%;
+            padding: 13px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background-color: #0b2948;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-box h3 {
+            color: #f7c948;
+            margin-bottom: 15px;
+        }
+
+        .footer-box p {
+            color: #ddd;
+            margin-bottom: 8px;
+        }
+
+        .footer-box a {
+            display: block;
+            color: #ddd;
+            margin-bottom: 8px;
+        }
+
+        .footer-box a:hover {
+            color: #f7c948;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #456;
+            margin-top: 35px;
+            padding-top: 20px;
+            color: #ccc;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media(max-width: 900px) {
+
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .product-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .client-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media(max-width: 600px) {
+
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .home-content h1 {
+                font-size: 38px;
+            }
+
+            .features,
+            .product-list,
+            .service-grid,
+            .client-grid,
+            .testimonial-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter input {
+                margin-bottom: 10px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <div class="logo">
+                Nova<span>Tech</span>
+            </div>
+
+            <ul class="nav-menu">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#products">Products</a>
+                </li>
+
+                <li>
+                    <a href="#clients">Clients</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section id="home">
+
+        <div class="container home-content">
+
+            <h1>
+                Welcome to
+                <span>NovaTech</span>
+            </h1>
+
+            <p>
+                We provide modern technology solutions,
+                quality products and professional services
+                for businesses and customers.
+            </p>
+
+            <div class="home-buttons">
+
+                <a href="#products" class="btn">
+                    View Products
+                </a>
+
+                <a href="#contact" class="btn btn-light">
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                About Us
+            </h2>
+
+            <p class="section-text">
+                Learn more about our company, our vision,
+                our mission and our working process.
+            </p>
+
+            <div class="about-content">
+
+                <div class="about-box">
+
+                    <h3>
+                        Who We Are
+                    </h3>
+
+                    <p>
+                        NovaTech is a modern technology company
+                        providing reliable products and services
+                        to customers and businesses.
+                    </p>
+
+                    <p>
+                        Our company focuses on quality,
+                        customer satisfaction and continuous
+                        improvement.
+                    </p>
+
+                    <p>
+                        We believe that technology should be
+                        simple, useful and affordable for everyone.
+                    </p>
+
+                    <p>
+                        Our professional team works together
+                        to provide better solutions for every
+                        customer.
+                    </p>
+
+                    <a href="#contact" class="btn">
+                        Contact Our Team
+                    </a>
+
+                </div>
+
+                <div class="about-image">
+                    💻
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         COMPANY FEATURES
+    ========================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Why Choose Us?
+            </h2>
+
+            <p class="section-text">
+                We provide professional solutions with
+                quality and customer support.
+            </p>
+
+            <div class="features">
+
+                <div class="feature-card">
+
+                    <div class="icon">
+                        ⭐
+                    </div>
+
+                    <h3>
+                        Quality
+                    </h3>
+
+                    <p>
+                        We focus on providing high quality
+                        products and services.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        Professional Team
+                    </h3>
+
+                    <p>
+                        Our experienced team works to
+                        provide effective solutions.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        Reliable Service
+                    </h3>
+
+                    <p>
+                        We provide reliable service and
+                        support to our customers.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="icon">
+                        💡
+                    </div>
+
+                    <h3>
+                        Innovation
+                    </h3>
+
+                    <p>
+                        We use modern ideas and technologies
+                        for better solutions.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="icon">
+                        💰
+                    </div>
+
+                    <h3>
+                        Affordable
+                    </h3>
+
+                    <p>
+                        Our products and services are designed
+                        according to customer requirements.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="icon">
+                        📞
+                    </div>
+
+                    <h3>
+                        Support
+                    </h3>
+
+                    <p>
+                        Our team is available to help customers
+                        with their requirements.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
+
+    <section id="products" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Our Products
+            </h2>
+
+            <p class="section-text">
+                Explore some of our popular technology products.
+            </p>
+
+
+            <div class="product-search">
+
+                <input
+                    type="text"
+                    id="searchProduct"
+                    placeholder="Search product..."
+                    onkeyup="searchProducts()"
+                >
+
+            </div>
+
+
+            <div class="product-list" id="productList">
+
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        💻
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Business Laptop
+                        </h3>
+
+                        <p>
+                            Powerful laptop for office,
+                            business and professional work.
+                        </p>
+
+                        <div class="price">
+                            ₹55,000
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        🖥️
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Desktop Computer
+                        </h3>
+
+                        <p>
+                            Reliable desktop system for
+                            office and business applications.
+                        </p>
+
+                        <div class="price">
+                            ₹45,000
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        📱
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Smart Device
+                        </h3>
+
+                        <p>
+                            Modern smart device with useful
+                            features and excellent performance.
+                        </p>
+
+                        <div class="price">
+                            ₹25,000
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        🖨️
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Office Printer
+                        </h3>
+
+                        <p>
+                            High quality printer suitable
+                            for offices and businesses.
+                        </p>
+
+                        <div class="price">
+                            ₹18,000
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        📷
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Security Camera
+                        </h3>
+
+                        <p>
+                            Security camera system for
+                            homes, shops and offices.
+                        </p>
+
+                        <div class="price">
+                            ₹12,000
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        ⌨️
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Computer Accessories
+                        </h3>
+
+                        <p>
+                            Quality keyboards, mouse and
+                            other computer accessories.
+                        </p>
+
+                        <div class="price">
+                            ₹2,500
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section id="services" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Our Services
+            </h2>
+
+            <p class="section-text">
+                We provide different services according
+                to customer requirements.
+            </p>
+
+
+            <div class="service-grid">
+
+
+                <div class="service-card">
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        We develop modern and responsive
+                        websites for businesses.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <h3>
+                        Software Solutions
+                    </h3>
+
+                    <p>
+                        We provide software solutions
+                        for business requirements.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <h3>
+                        IT Support
+                    </h3>
+
+                    <p>
+                        Our team provides technical support
+                        and troubleshooting services.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <h3>
+                        Network Services
+                    </h3>
+
+                    <p>
+                        We provide networking solutions
+                        for offices and organizations.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <h3>
+                        Security Solutions
+                    </h3>
+
+                    <p>
+                        We help businesses improve their
+                        digital security.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <h3>
+                        Maintenance
+                    </h3>
+
+                    <p>
+                        We provide regular maintenance
+                        and technical assistance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CLIENTS
+    ========================== -->
+
+    <section id="clients" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Our Clients
+            </h2>
+
+            <p class="section-text">
+                We work with businesses and organizations
+                from different industries.
+            </p>
+
+
+            <div class="client-grid">
+
+
+                <div class="client-card">
+
+                    <h3>
+                        ABC Enterprises
+                    </h3>
+
+                    <p>
+                        Business Client
+                    </p>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <h3>
+                        Smart Solutions
+                    </h3>
+
+                    <p>
+                        Technology Client
+                    </p>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <h3>
+                        Gujarat Industries
+                    </h3>
+
+                    <p>
+                        Industrial Client
+                    </p>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <h3>
+                        Bright Education
+                    </h3>
+
+                    <p>
+                        Education Client
+                    </p>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <h3>
+                        City Hospital
+                    </h3>
+
+                    <p>
+                        Healthcare Client
+                    </p>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <h3>
+                        Digital World
+                    </h3>
+
+                    <p>
+                        IT Client
+                    </p>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <h3>
+                        Future Group
+                    </h3>
+
+                    <p>
+                        Corporate Client
+                    </p>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <h3>
+                        Sunrise Academy
+                    </h3>
+
+                    <p>
+                        Education Client
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TESTIMONIALS
+    ========================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Client Reviews
+            </h2>
+
+            <p class="section-text">
+                What our customers say about our services.
+            </p>
+
+
+            <div class="testimonial-grid">
+
+
+                <div class="testimonial">
+
+                    <p>
+                        "NovaTech provided us with a reliable
+                        and professional solution. We are very
+                        happy with their service."
+                    </p>
+
+                    <h4>
+                        Rahul Sharma
+                    </h4>
+
+                    <small>
+                        Business Owner
+                    </small>
+
+                </div>
+
+
+                <div class="testimonial">
+
+                    <p>
+                        "The team was very supportive and
+                        completed our project on time."
+                    </p>
+
+                    <h4>
+                        Priya Patel
+                    </h4>
+
+                    <small>
+                        Manager
+                    </small>
+
+                </div>
+
+
+                <div class="testimonial">
+
+                    <p>
+                        "Good quality products and excellent
+                        customer support."
+                    </p>
+
+                    <h4>
+                        Amit Shah
+                    </h4>
+
+                    <small>
+                        Customer
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================== -->
+
+    <section id="faq" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Frequently Asked Questions
+            </h2>
+
+            <div class="faq-box">
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        What does NovaTech provide?
+                    </h3>
+
+                    <p>
+                        NovaTech provides technology products,
+                        software solutions and IT services.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        How can I contact the company?
+                    </h3>
+
+                    <p>
+                        You can contact us using the contact
+                        form or the phone and email details
+                        given below.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        Do you provide technical support?
+                    </h3>
+
+                    <p>
+                        Yes, we provide technical support
+                        for our products and services.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        Do you provide customized solutions?
+                    </h3>
+
+                    <p>
+                        Yes, customized solutions can be
+                        provided according to customer needs.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        Where is NovaTech located?
+                    </h3>
+
+                    <p>
+                        NovaTech is located in Surat,
+                        Gujarat, India.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Contact Us
+            </h2>
+
+            <p class="section-text">
+                Contact us for products, services or
+                business enquiries.
+            </p>
+
+
+            <div class="contact-container">
+
+
+                <div class="contact-info">
+
+                    <h3>
+                        Get In Touch
+                    </h3>
+
+
+                    <div class="contact-item">
+
+                        <strong>
+                            Address
+                        </strong>
+
+                        <p>
+                            NovaTech Office,
+                            Surat, Gujarat, India.
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <strong>
+                            Phone
+                        </strong>
+
+                        <p>
+                            +91 98765 43210
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <strong>
+                            Email
+                        </strong>
+
+                        <p>
+                            info@novatech.com
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <strong>
+                            Working Hours
+                        </strong>
+
+                        <p>
+                            Monday - Saturday
+                        </p>
+
+                        <p>
+                            10:00 AM - 6:00 PM
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-form">
+
+                    <form onsubmit="submitForm(event)">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Mobile Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="mobile"
+                                placeholder="Enter mobile number"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Subject
+                            </label>
+
+                            <input
+                                type="text"
+                                id="subject"
+                                placeholder="Enter subject"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Message
+                            </label>
+
+                            <textarea
+                                id="userMessage"
+                                placeholder="Write your message"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn"
+                        >
+                            Send Message
+                        </button>
+
+
+                        <p id="message"></p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NEWSLETTER
+    ========================== -->
+
+    <section class="newsletter">
+
+        <div class="container">
+
+            <h2>
+                Subscribe to Our Newsletter
+            </h2>
+
+            <p>
+                Get updates about our latest products
+                and services.
+            </p>
+
+            <input
+                type="email"
+                id="subscribeEmail"
+                placeholder="Enter your email"
+            >
+
+            <button
+                class="btn btn-light"
+                onclick="subscribe()"
+            >
+                Subscribe
+            </button>
+
+            <p id="subscribeMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div class="footer-box">
+
+                    <h3>
+                        NovaTech
+                    </h3>
+
+                    <p>
+                        Modern technology solutions
+                        for modern businesses.
+                    </p>
+
+                    <p>
+                        Quality, innovation and
+                        customer satisfaction.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-box">
+
+                    <h3>
+                        Quick Links
+                    </h3>
+
+                    <a href="#home">
+                        Home
+                    </a>
+
+                    <a href="#about">
+                        About
+                    </a>
+
+                    <a href="#products">
+                        Products
+                    </a>
+
+                    <a href="#clients">
+                        Clients
+                    </a>
+
+                    <a href="#contact">
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div class="footer-box">
+
+                    <h3>
+                        Services
+                    </h3>
+
+                    <a href="#services">
+                        Web Development
+                    </a>
+
+                    <a href="#services">
+                        Software Solutions
+                    </a>
+
+                    <a href="#services">
+                        IT Support
+                    </a>
+
+                    <a href="#services">
+                        Network Services
+                    </a>
+
+                    <a href="#services">
+                        Security Solutions
+                    </a>
+
+                </div>
+
+
+                <div class="footer-box">
+
+                    <h3>
+                        Contact
+                    </h3>
+
+                    <p>
+                        Surat, Gujarat
+                    </p>
+
+                    <p>
+                        +91 98765 43210
+                    </p>
+
+                    <p>
+                        info@novatech.com
+                    </p>
+
+                    <p>
+                        Mon - Sat: 10 AM - 6 PM
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="copyright">
+
+                <p>
+                    © 2026 NovaTech. All Rights Reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+
+        /* =========================
+           PRODUCT SEARCH
+        ========================== */
+
+        function searchProducts() {
+
+            let input =
+                document
+                .getElementById("searchProduct")
+                .value
+                .toLowerCase();
+
+            let products =
+                document
+                .getElementsByClassName("product-card");
+
+
+            for (
+                let i = 0;
+                i < products.length;
+                i++
+            ) {
+
+                let productName =
+                    products[i]
+                    .innerText
+                    .toLowerCase();
+
+
+                if (
+                    productName.includes(input)
+                ) {
+
+                    products[i].style.display =
+                        "block";
+
+                } else {
+
+                    products[i].style.display =
+                        "none";
+
+                }
+
+            }
+
+        }
+
+
+        /* =========================
+           CONTACT FORM
+        ========================== */
+
+        function submitForm(event) {
+
+            event.preventDefault();
+
+
+            let name =
+                document
+                .getElementById("name")
+                .value;
+
+
+            let email =
+                document
+                .getElementById("email")
+                .value;
+
+
+            let mobile =
+                document
+                .getElementById("mobile")
+                .value;
+
+
+            let subject =
+                document
+                .getElementById("subject")
+                .value;
+
+
+            let userMessage =
+                document
+                .getElementById("userMessage")
+                .value;
+
+
+            let message =
+                document
+                .getElementById("message");
+
+
+            if (
+                name === "" ||
+                email === "" ||
+                mobile === "" ||
+                subject === "" ||
+                userMessage === ""
+            ) {
+
+                message.innerHTML =
+                    "Please fill all fields.";
+
+                message.style.color =
+                    "red";
+
+                return;
+
+            }
+
+
+            if (mobile.length < 10) {
+
+                message.innerHTML =
+                    "Please enter a valid mobile number.";
+
+                message.style.color =
+                    "red";
+
+                return;
+
+            }
+
+
+            message.innerHTML =
+                "Thank you! Your message has been submitted successfully.";
+
+            message.style.color =
+                "green";
+
+
+            document
+            .querySelector(".contact-form form")
+            .reset();
+
+        }
+
+
+        /* =========================
+           NEWSLETTER
+        ========================== */
+
+        function subscribe() {
+
+            let email =
+                document
+                .getElementById("subscribeEmail")
+                .value;
+
+
+            let message =
+                document
+                .getElementById("subscribeMessage");
+
+
+            if (email === "") {
+
+                message.innerHTML =
+                    "Please enter your email.";
+
+                message.style.color =
+                    "#f7c948";
+
+                return;
+
+            }
+
+
+            message.innerHTML =
+                "Thank you for subscribing!";
+
+            message.style.color =
+                "#f7c948";
+
+
+            document
+            .getElementById("subscribeEmail")
+            .value = "";
+
+        }
+
+
+        /* =========================
+           CONSOLE MESSAGE
+        ========================== */
+
+        console.log(
+            "Welcome to NovaTech Website"
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

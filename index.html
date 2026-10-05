@@ -1,67 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login - College Celebrations</title>
+    <title>for college</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="container">
+        <h2>User Registration</h2>
 
-    <header>
-        <h1>College Celebration Portal</h1>
-        <nav>
-            <a href="index.html">Login</a>
-            <a href="register.html">Registration</a>
-            <a href="events.html">Events</a>
-        </nav>
-    </header>
+        <form onsubmit="return validateForm()">
 
-    <main class="container">
+            <label>Name:</label>
+            <input type="text" id="name">
+            <span id="nameError" class="error"></span>
 
-        <div class="form-box">
+            <label>Email:</label>
+            <input type="email" id="email">
+            <span id="emailError" class="error"></span>
 
-            <h2>Student Login</h2>
-            <p class="subtitle">Login to access college events</p>
+            <label>Contact No:</label>
+            <input type="text" id="contact">
+            <span id="contactError" class="error"></span>
 
-            <form id="loginForm">
+            <label>Password:</label>
+            <input type="password" id="password">
+            <span id="passwordError" class="error"></span>
 
-                <label for="loginEmail">Email Address</label>
-                <input 
-                    type="email" 
-                    id="loginEmail" 
-                    placeholder="Enter your email"
-                    required
-                >
+            <label>City:</label>
+            <select id="city">
+                <option value="">-- Select City --</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Bhuj">Bhuj</option>
+                <option value="Rajkot">Rajkot</option>
+                <option value="Surat">Surat</option>
+                <option value="Vadodara">Vadodara</option>
+            </select>
 
-                <label for="loginPassword">Password</label>
-                <input 
-                    type="password" 
-                    id="loginPassword" 
-                    placeholder="Enter your password"
-                    minlength="6"
-                    required
-                >
+            <button type="submit">Register</button>
 
-                <button type="submit">Login</button>
-
-            </form>
-
-            <p class="bottom-text">
-                Don't have an account?
-                <a href="register.html">Register Now</a>
-            </p>
-
-        </div>
-
-    </main>
-
-    <footer>
-        <p>© 2026 College Celebration Portal</p>
-    </footer>
-
-    <script src="script.js"></script>
+            <p id="success"></p>
+        </form>
+    </div>
 
 </body>
+
 </html>
