@@ -4,48 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for college</title>
+    <title>practis wd</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <h2>User Registration</h2>
+    <header>
+        ]<h1>online book store</h1>
+        <h2>read learn grow</h2>
+    </header>
+
+    <nav>
+        <a href="#home">home</a>
+        <a href="#books">books</a>
+        <a href="#register">registration</a>
+        <a href="#member">member</a>
+        <a href="#contact">contact</a>
+
+    </nav>
+    <div class="container" id="home">
+        <h2>website to online book store</h2>
+        <p>welcome to our online book store</p>
+
+    </div>
+    <div class="container" id="books">
+        <h2>book infromation</h2>
+
+        <div class="book">
+            <h3>html & css</h3>
+            <p>price: 400</p>
+            <button>buy now</button>
+        </div>
+
+        <div class="book">
+            <h3>java script</h3>
+            <p>price: 550</p>
+            <button>buy now</button>
+        </div>
+
+        <div class="book">
+            <h3>python</h3>
+            <p>price: 600</p>
+            <button>buy now</button>
+        </div>
+    </div>
+    <div class="container" id="register">
+        <h2>member registration</h2>
 
         <form onsubmit="return validateForm()">
 
-            <label>Name:</label>
-            <input type="text" id="name">
-            <span id="nameError" class="error"></span>
+            <label>name:</label>
+            <input type="text" id="name" placeholder="enter  name">
 
-            <label>Email:</label>
-            <input type="email" id="email">
-            <span id="emailError" class="error"></span>
+            <label>email:</label>
+            <input type="email" id="name" placeholder="enter  email">
 
-            <label>Contact No:</label>
-            <input type="text" id="contact">
-            <span id="contactError" class="error"></span>
+            <label>password:</label>
+            <input type="password" id="name" placeholder="enter password">
 
-            <label>Password:</label>
-            <input type="password" id="password">
-            <span id="passwordError" class="error"></span>
+            <label>phone:</label>
+            <input type="number" id="name" placeholder="enter number">
 
-            <label>City:</label>
-            <select id="city">
-                <option value="">-- Select City --</option>
-                <option value="Ahmedabad">Ahmedabad</option>
-                <option value="Bhuj">Bhuj</option>
-                <option value="Rajkot">Rajkot</option>
-                <option value="Surat">Surat</option>
-                <option value="Vadodara">Vadodara</option>
-            </select>
 
-            <button type="submit">Register</button>
+        </form>
+    </div>
+    <div class="container" id="contact">
+        <h2>contact information</h2>
+        <form onsubmit="contactForm(); return false;">
+            <label> name</label>
+            <input type="text" required>
 
-            <p id="success"></p>
+            <label> email</label>
+            <input type="eamil" required>
+
+            <label> messge</label>
+            <textarea rows="5" requred></textarea>
+
+            <button type="submit">send message</button>
+
         </form>
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
