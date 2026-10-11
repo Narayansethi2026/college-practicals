@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Practical Programs Portal - 14 Programs</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151c2c;
+            --border-color: #26334d;
+            --accent-blue: #38bdf8;
+            --accent-red: #e50914;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --btn-hover: #e50914;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar Styling */
+        header {
+            background: rgba(21, 28, 44, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-left {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-right {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Main Content Styling */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 35px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-header h1 {
+            font-size: 1.7rem;
+            margin-bottom: 6px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Grid Layout for 14 Cards */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .program-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.12);
+        }
+
+        .tag {
+            align-self: flex-start;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .card-link-btn {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            padding: 8px;
+            background-color: rgba(255, 255, 255, 0.04);
+            color: var(--text-main);
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .card-link-btn:hover {
+            background-color: var(--btn-hover);
+            border-color: var(--btn-hover);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(229, 9, 20, 0.25);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #070a12;
+            border-top: 1px solid var(--border-color);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .footer-btn {
+            display: inline-block;
+            padding: 6px 14px;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .footer-btn:hover {
+            background-color: var(--btn-hover);
+            border-color: var(--btn-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="nav-left">NARAYAN SETHI</div>
+            <div class="nav-right">College Practicals & Question Papers</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="section-header">
+            <h1>Practical Programs & Question Banks</h1>
+            <p>Access all 14 college practical lab assignments and program books below.</p>
+        </div>
+
+        <div class="program-grid">
+            <!-- Box 1 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 01</span>
+                    <h2 class="card-title">2023 Group A Program</h2>
+                    <p class="card-desc">Official group A practical questions and manual documentation.</p>
+                </div>
+                <a href="bok store.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 02</span>
+                    <h2 class="card-title">Python Fundamentals Lab</h2>
+                    <p class="card-desc">Basic syntax, loops, conditional statements, and functions.</p>
+                </div>
+                <a href="program2.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 03</span>
+                    <h2 class="card-title">Object Oriented Programming C++</h2>
+                    <p class="card-desc">Classes, objects, inheritance, and polymorphism codes.</p>
+                </div>
+                <a href="program3.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 4 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 04</span>
+                    <h2 class="card-title">Data Structures & Algorithms</h2>
+                    <p class="card-desc">Stack, Queue, Linked List implementation and sorting algorithms.</p>
+                </div>
+                <a href="program4.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 5 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 05</span>
+                    <h2 class="card-title">Database Management Systems</h2>
+                    <p class="card-desc">SQL queries, joins, subqueries, and PL/SQL blocks.</p>
+                </div>
+                <a href="program5.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 6 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 06</span>
+                    <h2 class="card-title">Web Development HTML & CSS</h2>
+                    <p class="card-desc">Responsive UI layouts, flexbox, and grid assignments.</p>
+                </div>
+                <a href="movie.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 7 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 07</span>
+                    <h2 class="card-title">JavaScript Interactive Lab</h2>
+                    <p class="card-desc">DOM manipulation, event handling, and form validations.</p>
+                </div>
+                <a href="program7.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 8 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 08</span>
+                    <h2 class="card-title">Java Programming Practical</h2>
+                    <p class="card-desc">Applets, exception handling, multithreading, and GUI.</p>
+                </div>
+                <a href="program8.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 9 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 09</span>
+                    <h2 class="card-title">Computer Networks Lab</h2>
+                    <p class="card-desc">Socket programming, IP addressing, and routing protocol simulations.</p>
+                </div>
+                <a href="program9.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 10 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 10</span>
+                    <h2 class="card-title">Operating System Algorithms</h2>
+                    <p class="card-desc">CPU scheduling algorithms, page replacement, and deadlocks.</p>
+                </div>
+                <a href="program10.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 11 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 11</span>
+                    <h2 class="card-title">Software Engineering Practical</h2>
+                    <p class="card-desc">UML diagrams, use case models, and test case documentation.</p>
+                </div>
+                <a href="program11.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 12 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 12</span>
+                    <h2 class="card-title">Python File Handling & DB</h2>
+                    <p class="card-desc">Reading/writing files and SQLite connectivity scripts.</p>
+                </div>
+                <a href="program12.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 13 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 13</span>
+                    <h2 class="card-title">System Administration Lab</h2>
+                    <p class="card-desc">Linux shell scripting, command line utilities, and cron jobs.</p>
+                </div>
+                <a href="program13.html" class="card-link-btn">Open File</a>
+            </div>
+
+            <!-- Box 14 -->
+            <div class="program-card">
+                <div>
+                    <span class="tag">Program 14</span>
+                    <h2 class="card-title">Student Login & Portal Auth</h2>
+                    <p class="card-desc">Secure credential check and submission dashboard template.</p>
+                </div>
+                <a href="login.html" class="card-link-btn">Open File</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 College Practical Portal. Developed by Aman Kumar.</p>
+            <div class="footer-links">
+                <a href="index.html" class="footer-btn">Home</a>
+                <a href="2023_group_a_program_book.html" class="footer-btn">Group A Book</a>
+                <a href="movie.html" class="footer-btn">Movies</a>
+                <a href="login.html" class="footer-btn">Login</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
