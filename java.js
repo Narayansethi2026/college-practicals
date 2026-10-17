@@ -45,17 +45,31 @@
 //         p.type = "Password"
 //     }
 // }
-let count = 0;
-var countN1 = document.getElementById('count');
-var incbtn = document.getElementById('inc');
-var decbtn = document.getElementById('dec');
-var resetbtn = document.getElementById('reset');
+// let count = 0;
+// var countN1 = document.getElementById('count');
+// var incbtn = document.getElementById('inc');
+// var decbtn = document.getElementById('dec');
+// var resetbtn = document.getElementById('reset');
 
-function updateui(){
-    countN1.textContent = count;
-    countN1.style = count > 0 ? 'green' : count < 0 ?'red' : '#333';
+// function updateui(){
+//     countN1.textContent = count;
+//     countN1.style = count > 0 ? 'green' : count < 0 ?'red' : '#333';
 
+// }
+// incbtn.addEventListener('click',() => {count++; updateui(); });
+// decbtn.addEventListener('click',() => {count--; updateui(); });
+// resetbtn.addEventListener('click',() => { count = 0; updateui(); });
+
+function calsi(){
+    var p = parseFloat(document.getElementById("sip").value);
+    var r = parseFloat(document.getElementById("cir").value);
+    var t = parseFloat(document.getElementById("cit").value);
+
+    if (isNaN(p) || isNaN(r) || isNaN(t)) return;
+
+    var si = (p * r * t) / 100;
+    var total = p + si;
+
+    document.getElementById("siresult").textContent = 
+    `CI = ${ci.toFixed(2)}, total = ${total.tofixed(2)}`;
 }
-incbtn.addEventListener('click',() => {count++; updateui(); });
-decbtn.addEventListener('click',() => {count--; updateui(); });
-resetbtn.addEventListener('click',() => { count = 0; updateui(); });

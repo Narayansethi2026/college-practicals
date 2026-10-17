@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search filter feature practis</title>
+</head>
+<body>
+    <input type="text" id="search" placeholder="search items">
+    <select id="shortby">
+        <option value="default">short:default</option>
+        <option value="az">A -> Z</option>
+        <option value="az">Z -> A</option>
+    </select>
+    <div id="list"></div>
+    <script>
+        let items = ['VIVO','OPPO','HP','REDMI','REALME','TECHNO','APPLE','1+'];
+
+        let list = document.getElementById('list');
+        let search = document.getElementById('search');
+        let sortby = document.getElementById('sortby');
+
+        function render(data) {
+            list.innerHTML = '';
+            data.forEach(items => {
+                let div = document.createElement('div');
+                div.className = 'item';
+                div.textContent = items;
+                list.appendChild(div);
+            });
+        }
+        function update() {
+            let query = search.value.toLowerCase();
+            let filtered = items.filter(i => i.toLocaleLowerCase().includes(query));
+
+            if(sortby.value === 'az') filtered.sort();
+            if(sortby.value === 'za') filtered.sort().reverse();
+
+            render(filtered);
+        }
+        search.addEventListener('input',update);
+        sortby.addEventListener('change',update);
+
+        render(items);
+    </script>
+</body>
+</html> -->
+<input type="text" id="search" placeholder="search items">
+<select id="sortby">
+    <option value="default">sort: default</option>
+    <option value="az">A -> Z</option>
+    <option value="za">Z -> A</option>
+</select>
+<div id="list"></div>
+
+<script>
+    let items = ['VIVO', 'OPPO', 'HP', 'REDMI', 'REALME', 'TECHNO', 'APPLE', '1+'];
+
+    let list = document.getElementById('list');
+    let search = document.getElementById('search');
+    let sortby = document.getElementById('sortby');
+
+    function render(data) {
+        list.innerHTML = '';
+        data.forEach(item => {
+            let div = document.createElement('div');
+            div.className = 'item';
+            div.textContent = item;
+            list.appendChild(div);
+        });
+    }
+
+    function update() {
+        let query = search.value.toLowerCase();
+        let filtered = items.filter(i => i.toLowerCase().includes(query));
+
+        if (sortby.value === 'az') {
+            filtered.sort();
+        } else if (sortby.value === 'za') {
+            filtered.sort().reverse();
+        }
+
+        render(filtered);
+    }
+
+    search.addEventListener('input', update);
+    sortby.addEventListener('change', update);
+
+    render(items);
+</script>
