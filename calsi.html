@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>small calulator</title>
+</head>
+
+<body>
+    <div class="calulator-card">
+        <h2>small calulator</h2>
+
+        <div class="input-group">
+            <input type="number" id="num1" placeholder="enter first number">
+        </div>
+        <div class="input-group">
+            <input type="number" id="num2" placeholder="enter second number">
+        </div>
+
+        <div class="btn-group">
+            <button onclick="calculate('+')">+</button>
+            <button onclick="calculate('-')">-</button>
+            <button onclick="calculate('*')">*</button>
+            <button onclick="calculate('/')">/</button>
+        </div>
+
+        <div class="result-box" id="result">
+            result:-
+        </div>
+    </div>
+    <script>
+        function calculate(operator) {
+            let num1str = document.getElementById('num1').value;
+            let num2str = document.getElementById('num2').value;
+            let resultbox = document.getElementById('result');
+
+            if (num1str === "" || num2str === "") {
+                resultbox.innerText = "please enter both number!";
+                resultbox.style.color = "red";
+                return;
+            }
+
+            let num1 = parseFloat(num1str);
+            let num2 = parseFloat(num2str);
+            let res = 0;
+
+            switch (operator) {
+                case '+':
+                    res = num1 + num2;
+                    break;
+
+                case '-':
+                    res = num1 - num2;
+                    break;
+
+                case '*':
+                    res = num1 + num2;
+                    break;
+
+                case '/':
+                    if (num2 === 0) {
+                        resultbox.innerHTML = "cannot divide by zero";
+                        resultbox.style.color = "#dc3545";
+                        return;
+                    }
+                    res = num1 / num2;
+                    break;
+
+            }
+            resultbox.style.color = "#212529";
+            resultbox.innerText = `result: ${res}`; 
+        }
+    </script>
+</body>
+
+</html>
