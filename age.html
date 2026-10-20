@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>age calculator</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 15px #aaa ;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>age calculator</h1>
+
+        <p>enter your dath of birth</p>
+
+        <input type="date" id="dob">
+        <br>
+        <button onclick="calculateage()">calculate age</button>
+        <p id="result"></p>
+
+    </div>
+    <script>
+        function calculateage() {
+            let dob = document.getElementById("dob").value;
+            let result = document.getElementById("result");
+
+            if(dob === "") {
+                result.innerHTML = "please select your DOB";
+                return;
+            }
+
+            let birthDate = new Date(dob + "T00:00:00");
+
+            let today = new Date();
+
+            if (birthDate > today) {
+                result.innerHTML = "invalid date of birth";
+                return;
+            }
+            let years = today.getFullYear() - birthDate.getFullYear();
+
+            let months = today.getMonth() - birthDate.getMonth();
+
+            let days = today.getDate() - birthDate.getDate();
+
+            if(days < 0) {
+                months--;
+                let previousMonth = new Date(
+                    today.getFullYear(),
+                    today.getMonth(), 0);
+
+                days += previousMonth.getDate();
+            }
+            if( months< 0) {
+                years--;
+                months += 12;
+            }
+            result.innerHTML = `you are ${years} years, ${months} months, and ${days} days old.`;            
+        }
+    
+    </script>
+</body>
+
+</html>
