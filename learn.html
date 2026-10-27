@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="myinput" type="text">
+    <button id="addbtn">add</button>
+    <ul id="list"></ul>
+
+    <script>
+        const input = document.getElementById('myinput');
+        const addbtn = document.getElementById('addbtn')
+        const list = document.getElementById('list');
+
+        // addbtn.addEventListener('click',() => {
+        function addItem() {
+            const text = input.value.trim();
+            if (text === '') return;
+
+            const li = document.createElement('li');
+            li.textContent = text;
+
+
+            const delbtn = document.createElement('button');
+            delbtn.textContent = 'delete';
+
+            delbtn.addEventListener('click', () => {
+                li.remove();
+            });
+
+            li.appendChild(delbtn);
+            list.appendChild(li);
+
+            input.value = '';
+
+            input.focus();
+        }
+
+        addbtn.addEventListener('click', addItem);
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                addItem();
+            }
+        });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
