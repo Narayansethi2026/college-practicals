@@ -4,26 +4,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INTSERST CALCUKATOR</title>
+    <title>Simple Interest Calculator</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #030407;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(21, 88, 201, 0.25), transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(212, 255, 36, 0.10), transparent 45%);
+    color: #ffffff;
+}
+.container {
+    width: 100%;
+    max-width: 430px;
+    background: #0a0d14;
+    padding: 34px 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(21, 88, 201, 0.5);
+    box-shadow:
+        0 0 0 1px rgba(212, 255, 36, 0.08),
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(21, 88, 201, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #1558c9, #d4ff24);
+}
+h1 {
+    font-size: 22px;
+    text-align: center;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #d4ff24;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 26px;
+    opacity: 0.9;
+}
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #d4ff24;
+    margin-bottom: 6px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    color: #ffffff;
+    background: #030407;
+    border: 1.5px solid #1a2540;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+.input-group input::placeholder {
+    color: #4a5570;
+    font-size: 13px;
+}
+
+.input-group input:hover {
+    border-color: #1558c9;
+}
+
+.input-group input:focus {
+    border-color: #d4ff24;
+    box-shadow: 0 0 0 3px rgba(212, 255, 36, 0.15);
+    background: #05070c;
+}
+.input-group input::-webkit-outer-spin-button,
+.input-group input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.input-group input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+.error {
+    display: block;
+    font-size: 12px;
+    color: #ff5566;
+    margin-top: 5px;
+    min-height: 14px;
+    font-weight: 500;
+}
+
+
+.btn-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+button {
+    flex: 1;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    text-transform: uppercase;
+}
+
+.btn-calc {
+    background: #1558c9;
+    color: #ffffff;
+    box-shadow: 0 4px 18px rgba(21, 88, 201, 0.4);
+}
+
+.btn-calc:hover {
+    background: #1a6bf5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(21, 88, 201, 0.6);
+}
+
+.btn-calc:active {
+    transform: translateY(0);
+}
+
+.btn-reset {
+    background: transparent;
+    color: #d4ff24;
+    border: 1.5px solid #d4ff24;
+}
+
+.btn-reset:hover {
+    background: rgba(212, 255, 36, 0.1);
+    box-shadow: 0 0 20px rgba(212, 255, 36, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-reset:active {
+    transform: translateY(0);
+}
+.result-box {
+    margin-top: 24px;
+    padding: 18px 20px;
+    background: #030407;
+    border: 1.5px solid #1558c9;
+    border-radius: 10px;
+    box-shadow:
+        0 0 25px rgba(21, 88, 201, 0.25),
+        inset 0 0 25px rgba(21, 88, 201, 0.05);
+    animation: fadeIn 0.4s ease;
+}
+.result-box h2 {
+    font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px dashed rgba(212, 255, 36, 0.3);
+    padding-bottom: 10px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    font-size: 14px;
+    color: #b8c1d9;
+}
+
+.result-row:not(:last-child) {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.result-row strong {
+    color: #d4ff24;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 12px rgba(212, 255, 36, 0.4);
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (max-width: 480px) {
+    .container {
+        padding: 26px 20px;
+    }
+    h1 {
+        font-size: 19px;
+    }
+    .result-row strong {
+        font-size: 16px;
+    }
+    button {
+        font-size: 13px;
+        padding: 11px;
+    }
+}
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>simple interst calcukator</h1>
-        <p class="subtitle"> p * r * t * / 100</p>
+        <h1>Simple Interest Calculator</h1>
+        <p class="subtitle">P × R × T / 100</p>
 
-        <form id="siform" novalidate>
+        <form id="siForm" novalidate>
             <div class="input-group">
-                <label>principal amount</label>
-                <input type="number" id="principal" placeholder="e.g 100000000">
-                <small class="error" id="principalerr"></small>
-
+                <label>Principal Amount</label>
+                <input type="number" id="principal" placeholder="e.g. 10000" step="0.01" />
+                <small class="error" id="principalErr"></small>
             </div>
 
             <div class="input-group">
-                <label>rate of interst(% per year)</label>
-                <input type="number" id="rate" placeholder="e.g 8.5">
-                <small class="error" id="rateerr"></small>
+                <label>Rate of Interest (% per year)</label>
+                <input type="number" id="rate" placeholder="e.g. 8.5" step="0.01" />
+                <small class="error" id="rateErr"></small>
             </div>
 
             <div class="input-group">
@@ -33,25 +273,105 @@
             </div>
 
             <div class="btn-group">
-                <button type="submit" class="btn-calc">calculator</button>
-                <button type="button" id="resetbtn" class="btn-reset">reset</button>
+                <button type="submit" class="btn-calc">Calculate</button>
+                <button type="button" id="resetBtn" class="btn-reset">Reset</button>
             </div>
         </form>
 
-        div class="result-box hidden" id="resultBox">
-        <h2>📊 Result</h2>
-        <div class="result-row">
-            <span>Simple Interest:</span>
-            <strong id="siResult">₹0</strong>
-        </div>
-        <div class="result-row">
-            <span>Total Amount:</span>
-            <strong id="totalResult">₹0</strong>
+        <div class="result-box hidden" id="resultBox">
+            <h2>📊 Result</h2>
+            <div class="result-row">
+                <span>Simple Interest:</span>
+                <strong id="siResult">₹0</strong>
+            </div>
+            <div class="result-row">
+                <span>Total Amount:</span>
+                <strong id="totalResult">₹0</strong>
+            </div>
         </div>
     </div>
 
+    <script>
+      
+        const form         = document.getElementById("siForm");
+        const principalEl  = document.getElementById("principal");
+        const rateEl       = document.getElementById("rate");
+        const timeEl       = document.getElementById("time");
+        const resetBtn     = document.getElementById("resetBtn");
+        const resultBox    = document.getElementById("resultBox");
+        const siResult     = document.getElementById("siResult");
+        const totalResult  = document.getElementById("totalResult");
 
-    </div>
+        function showError(id, msg) {
+            document.getElementById(id).textContent = msg;
+        }
+
+        function clearErrors() {
+            document.querySelectorAll(".error").forEach(function (el) {
+                el.textContent = "";
+            });
+        }
+
+        function formatCurrency(num) {
+            return "₹" + num.toLocaleString("en-IN", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+        }
+
+        // 3. Calculate — form submit
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            clearErrors();
+
+            const p = parseFloat(principalEl.value);
+            const r = parseFloat(rateEl.value);
+            const t = parseFloat(timeEl.value);
+
+            let isValid = true;
+
+            // Principal validation
+            if (isNaN(p) || p <= 0) {
+                showError("principalErr", "Enter a valid principal amount greater than 0");
+                isValid = false;
+            }
+
+            if (isNaN(r) || r <= 0) {
+                showError("rateErr", "Enter a valid rate greater than 0");
+                isValid = false;
+            } else if (r > 100) {
+                showError("rateErr", "Rate seems too high (max 100%)");
+                isValid = false;
+            }
+
+            if (isNaN(t) || t <= 0) {
+                showError("timeErr", "Enter a valid time greater than 0");
+                isValid = false;
+            }
+
+            // Agar invalid → result hide + exit
+            if (!isValid) {
+                resultBox.classList.add("hidden");
+                return;
+            }
+
+           
+            const simpleInterest = (p * r * t) / 100;
+            const totalAmount    = p + simpleInterest;
+
+            // Display result
+            siResult.textContent    = formatCurrency(simpleInterest);
+            totalResult.textContent = formatCurrency(totalAmount);
+            resultBox.classList.remove("hidden");
+        });
+
+        // 4. Reset button
+        resetBtn.addEventListener("click", function () {
+            form.reset();
+            clearErrors();
+            resultBox.classList.add("hidden");
+        });
+    </script>
 </body>
 
 </html>
