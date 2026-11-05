@@ -1,75 +1,63 @@
-// var laptop = document.querySelector("h4")
-// var add = document.querySelector("#add")
-// var check = 0
+// let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
-// add.addEventListener("click", function () {
-
-//     if (check == 0) {
-//         laptop.innerHTML = "web developers"
-//         laptop.style.color = "red"
-//         console.log("hui hui hui")
-//         check = 1
-//     }
-// })
-// var  heading = document.getElementById('myheading');
-// var  button = document.getElementById('changebtn');
-
-// button.addEventListener('click',function(){
-//     heading.textContent = "javascript dom hogaya";
-    
-//     heading.style.color = "crimson";
-//     heading.style.fontSize = "35px";
-//     button.style.border = "2px solid red";
-//     button.style.color = "blue";
-//     button.style.backgroundColor = "yellow";
-
-// })
-// function changeColor(color) {
-//     document.getElementById("box").style.backgroundColor = color;
-
+// function saveNotes() {
+//   localStorage.setItem("notes", JSON.stringify(notes));
 // }
-// function darkmode() {
-//     document.getElementById("page").style.backgroundColor = "black";
-//     document.getElementById("page").style.color = "white";
+
+// function addNote(title, content) {
+//   if (!title.trim() && !content.trim()) return;  // validation
+//   notes.push({ id: Date.now(), title, content });
+//   saveNotes();
+//   renderNotes();
 // }
-// function lightmode() {
-//     document.getElementById("page").style.backgroundColor = "white";
-//     document.getElementById("page").style.color = "black"; 
+
+// function deleteNote(id) {
+//   notes = notes.filter(n => n.id !== id);
+//   saveNotes();
+//   renderNotes();
 // }
-// function showPassword() {
-//     let p = document.getElementById("pass");
 
-//     if(document.getElementById("show").checked) {
-//         p.type = "text";
-//     }else{
-//         p.type = "Password"
-//     }
+// function renderNotes() {
+//   const list = document.querySelector("#notes-list");
+//   list.innerHTML = "";
+//   notes.forEach(n => {
+//     const div = document.createElement("div");
+//     div.className = "note";
+//     div.innerHTML = `<h3></h3><p></p><button data-id="${n.id}">Delete</button>`;
+//     div.querySelector("h3").textContent = n.title;   // textContent = XSS se safe
+//     div.querySelector("p").textContent = n.content;
+//     list.appendChild(div);
+//   });
 // }
-// let count = 0;
-// var countN1 = document.getElementById('count');
-// var incbtn = document.getElementById('inc');
-// var decbtn = document.getElementById('dec');
-// var resetbtn = document.getElementById('reset');
 
-// function updateui(){
-//     countN1.textContent = count;
-//     countN1.style = count > 0 ? 'green' : count < 0 ?'red' : '#333';
+// // Event delegation
+// document.querySelector("#notes-list").addEventListener("click", (e) => {
+//   if (e.target.dataset.id) deleteNote(Number(e.target.dataset.id));
+// });
 
+// renderNotes(); // page load par
+
+//practics baby practics 
+// function findMax(arr) {
+//   if(arr.length === 0) return null;
+//   let max = arr[0];
+//   for (let i = 1; i < arr.length; i++){
+//      if(arr[i] > max) max = arr[i];
+//   }
+//   return max;
 // }
-// incbtn.addEventListener('click',() => {count++; updateui(); });
-// decbtn.addEventListener('click',() => {count--; updateui(); });
-// resetbtn.addEventListener('click',() => { count = 0; updateui(); });
+// console.log(findMax([3,5,6,8,9]))
 
-function calsi(){
-    var p = parseFloat(document.getElementById("sip").value);
-    var r = parseFloat(document.getElementById("cir").value);
-    var t = parseFloat(document.getElementById("cit").value);
-
-    if (isNaN(p) || isNaN(r) || isNaN(t)) return;
-
-    var si = (p * r * t) / 100;
-    var total = p + si;
-
-    document.getElementById("siresult").textContent = 
-    `CI = ${ci.toFixed(2)}, total = ${total.tofixed(2)}`;
+function hasDuplicate(arr){
+  const seen = new Set();
+  for(const x of arr) {
+    if (seen.has(x)) {
+      return true;
+    }
+     seen.add(x);
+  }
+  return false;   
 }
+console.log(hasDuplicate([1, 2, 3, 4]));
+
+console.log(hasDuplicate([1, 2, 3, 1]));
