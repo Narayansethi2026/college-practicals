@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LoanPro — Loan Management System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading LoanPro...</p>
+  </div>
+
+  <!-- ============ TOPBAR (Mobile) ============ -->
+  <header class="topbar">
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <div class="logo">💰 LoanPro</div>
+    <button id="themeBtn" class="theme-btn">🌙</button>
+  </header>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="logo-box">
+      <div class="logo-icon">💰</div>
+      <div>
+        <h2>LoanPro</h2>
+        <small>Management System</small>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <p class="nav-title">MAIN</p>
+      <a href="#" class="nav-link active" data-page="dashboard"><span>📊</span> Dashboard</a>
+      <a href="#" class="nav-link" data-page="newloan"><span>➕</span> New Loan</a>
+      <a href="#" class="nav-link" data-page="loans"><span>📋</span> All Loans</a>
+
+      <p class="nav-title">TOOLS</p>
+      <a href="#" class="nav-link" data-page="calculator"><span>🧮</span> EMI Calculator</a>
+      <a href="#" class="nav-link" data-page="customers"><span>👥</span> Customers</a>
+      <a href="#" class="nav-link" data-page="reports"><span>📈</span> Reports</a>
+
+      <p class="nav-title">SETTINGS</p>
+      <a href="#" class="nav-link" data-page="settings"><span>⚙️</span> Settings</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="avatar">A</div>
+        <div>
+          <strong>Admin</strong>
+          <small>Administrator</small>
+        </div>
+      </div>
+    </div>
+  </aside>
+//main content se baki hai
